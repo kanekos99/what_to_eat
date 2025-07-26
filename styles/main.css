@@ -1,0 +1,11 @@
+.option-btn {
+    background-color: lightgray;
+    color: black;
+    cursor: pointer;
+}
+
+
+.option-btn.selected {
+    background-color: cornflowerblue;
+    color: white;
+}
