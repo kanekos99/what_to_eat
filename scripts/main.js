@@ -15,37 +15,12 @@ const app = {
 
 app.init();
 
-function loadFoodOptions() {
-  Papa.parse("./assets/food_options.csv", {
-    header: true,
-    download: true,
-    step: function (row) {
-      foodOptions.push(row.data);
-      console.log("Row:", row.data);
-    },
-    complete: function () {
-      console.log(foodOptions);
-      enableButtons();
-    },
-  });
-}
-
-function enableButtons() {
-  document.getElementById("choose-btn").disabled = false;
-  document.querySelectorAll(".option-btn").forEach((button) => {
-    button.disabled = false;
-  });
-}
-
 function getFoodChoice() {
   const filteredFoodOptions = filterFoodOptions();
-  console.log(filteredFoodOptions)
   if(filteredFoodOptions.length > 0) {
     const foodChoice = filteredFoodOptions[Math.floor(Math.random() * filteredFoodOptions.length)];
     displayFoodChoice(foodChoice);
-    console.log(foodChoice);
   } else {
-    console.log("HUHHHHHH");
     selectedFoodName.innerHTML = "No options are available!";
     selectedFoodLocation.innerHTML = "";
     selectedFoodDate.innerHTML = "";
