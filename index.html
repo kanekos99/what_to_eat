@@ -55,17 +55,15 @@
       <h2>Options</h2>
       <p>Price</p>
       <button
-        class="option-btn"
-        selected
+        class="option-btn selected"
         disabled
         data-option="low"
         data-category="price"
       >
-        Cheap
+        Low
       </button>
       <button
-        class="option-btn"
-        selected
+        class="option-btn selected"
         disabled
         data-option="mid"
         data-category="price"
@@ -73,8 +71,7 @@
         Mid-Range
       </button>
       <button
-        class="option-btn"
-        selected
+        class="option-btn selected"
         disabled
         data-option="high"
         data-category="price"
@@ -86,7 +83,8 @@
       <br />
 
       <p>Location</p>
-      <button
+      <div id="location-options"></div>
+      <!-- <button
         class="option-btn"
         selected
         disabled
@@ -103,13 +101,14 @@
         data-category="location"
       >
         Tampines
-      </button>
+      </button> -->
 
       <br />
       <br />
       <br />
     </div>
 
+    <script src="scripts/common.js"></script>
     <script src="scripts/import.js"></script>
     <script src="scripts/main.js"></script>
   </body>

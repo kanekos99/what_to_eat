@@ -14,9 +14,10 @@ function loadFoodOptions() {
         header: true,
         skipEmptyLines: true,
       });
-      
+
       foodOptions = parsedResponse.data;
 
+      appendLocationOptions(foodOptions);
       enableButtons();
     },
   });
@@ -26,5 +27,30 @@ function enableButtons() {
   document.getElementById("choose-btn").disabled = false;
   document.querySelectorAll(".option-btn").forEach((button) => {
     button.disabled = false;
+  });
+}
+
+function appendLocationOptions(foodOptions) {
+  const uniqueLocations = [
+    ...new Set(foodOptions.map((food) => food.location)),
+  ];
+
+  uniqueLocations.forEach((location) => {
+    const locationName = formatString(location);
+    const locationOptionButton =
+      `
+    <button
+        class="option-btn selected"
+        disabled
+        data-option="` +
+      location +
+      `"
+        data-category="location"
+    >` +
+      locationName +
+      `
+      </button>`;
+    locationOptionBox.append(locationOptionButton);
+    
   });
 }
