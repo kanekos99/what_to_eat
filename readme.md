@@ -3,7 +3,7 @@
 bad website to decide what to eat
 
 to do:
-- add UI
---- spin the wheel animation
 - list all available options
 - filter by takeaway/ dine in
+- add images for each food choice
+- loading animation

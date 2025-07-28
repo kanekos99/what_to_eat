@@ -31,13 +31,15 @@ function getFoodChoice() {
       ];
     displayFoodChoice(foodChoice);
   } else {
-    selectedFoodName.innerHTML = "No options are available!";
-    selectedFoodLocation.innerHTML = "";
+    selectedFoodName.innerHTML = "";
+    selectedFoodLocation.innerHTML = "No options are available";
     selectedFoodDate.innerHTML = "";
+    foodIcon.src = "./assets/error_icon.png";
   }
 }
 
 function displayFoodChoice(foodChoice) {
+  foodIcon.src = "./assets/food_icon.svg";
   selectedFoodName.innerHTML = foodChoice.display_name;
   selectedFoodLocation.innerHTML = formatString(foodChoice.mall);
   selectedFoodDate.innerHTML =
