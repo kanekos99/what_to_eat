@@ -1,10 +1,26 @@
 const app = {
   init: function () {
+    foodChoiceBox.hide();
     loadFoodOptions();
   },
 };
 
 app.init();
+
+function fadeInOrOutFoodChoice() {
+  if (clickedChooseForMeButton) {
+    foodChoiceBox.fadeOut(300, function () {
+      getFoodChoice();
+      foodChoiceBox.fadeIn(300);
+    });
+  } else {
+    foodImage.fadeOut(300, function () {
+      getFoodChoice();
+      clickedChooseForMeButton = true;
+      foodChoiceBox.fadeIn(300);
+    });
+  }
+}
 
 function getFoodChoice() {
   const filteredFoodOptions = filterFoodOptions();

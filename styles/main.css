@@ -1,11 +1,180 @@
-.option-btn {
-    background-color: lightgray;
-    color: black;
-    cursor: pointer;
+@font-face {
+  font-family: lazydog;
+  src: url("../assets/fonts/Lazydog.otf");
 }
 
+@font-face {
+  font-family: fakefutura;
+  src: url("../assets/fonts/HFUNB.TTF");
+}
+
+.title {
+  font-size: 60px;
+  color: #6d2932;
+  text-align: center;
+}
+
+body {
+  background-color: #e8d8c4;
+  font-family: "lazydog";
+  height: 100%;
+  width: 100%;
+}
+
+.accordion {
+  background-color: #e8d8c4;
+}
+
+.accordion-item {
+  background-color: #e8d8c4;
+  border: none;
+  width: 100%;
+}
+
+.accordion-button {
+  background-color: #6d2932 !important;
+  color: #e8d8c4 !important;
+  font-size: 30px;
+  border-bottom-right-radius: var(
+    --bs-accordion-inner-border-radius
+  ) !important;
+  border-bottom-left-radius: var(--bs-accordion-inner-border-radius) !important;
+}
+
+.accordion-button:focus {
+  box-shadow: none !important;
+}
+
+.accordion-button::after {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M2 5l6 6 6-6' fill='none' stroke='%23e8d8c4' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/></svg>") !important;
+}
+
+.accordion-body {
+  background-color: #e8d8c4;
+  width: 100%;
+  padding: 0;
+}
+
+.options-box {
+  background-color: #c7b7a3;
+  border-radius: 25px;
+}
+
+.option-btn {
+  background-color: #e8d8c4;
+  color: #6d2932;
+  cursor: pointer;
+  padding: 5px 30px 5px 30px;
+  margin: 5px;
+  border: none;
+  font-size: 25px;
+  border-radius: 50px;
+  font-family: "fakefutura";
+  text-transform: lowercase;
+  text-align: center;
+}
 
 .option-btn.selected {
-    background-color: cornflowerblue;
-    color: white;
+  background-color: #4e6c50;
+  color: #e8d8c4;
+}
+
+.flex-row {
+  width: 100%;
+  max-width: 100%;
+}
+
+.option-label {
+  width: 200px;
+  background-color: white;
+  color: #6d2932;
+  padding: 5px 30px 5px 30px;
+  margin: 5px 10px 15px 10px;
+  border-radius: 50px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.food-img {
+  width: 500px;
+}
+
+.choice-btn {
+  background-color: #c7b7a3;
+  color: #6d2932;
+  cursor: pointer;
+  padding: 7px 50px 7px 50px;
+  margin: 10px;
+  border: none;
+  font-size: 25px;
+  border-radius: 50px;
+  text-align: center;
+}
+
+.choice-btn.selected {
+  background-color: #4e6c50;
+  color: #e8d8c4;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+#food-choice {
+  text-align: center;
+}
+
+#food-name {
+  font-family: "lazydog";
+  font-size: 40px;
+  color: #4e6c50;
+}
+
+#food-location {
+  font-size: 32px;
+  padding: 0;
+  margin: 0;
+  text-transform: lowercase;
+}
+
+#last-ate-date {
+  font-size: 20px;
+  text-transform: lowercase;
+}
+
+.food-choice-box {
+  width: 500px;
+  background-color: white;
+  font-family: "fakefutura";
+  color: #6d2932;
+  padding: 30px 20px 20px 20px;
+  border-radius: 25px;
+}
+
+.food-icon {
+  width: 150px;
+}
+
+/*--------------------------CUSTOM SCROLL BAR-------------------------------*/
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 25px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

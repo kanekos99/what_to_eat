@@ -33,26 +33,99 @@
     <title>What to Eat</title>
   </head>
   <body>
-    <div class="p-3" id="food-randomiser">
-      <h1>WHAT TO EAT</h1>
-
-      <button disabled id="choose-btn" onclick="getFoodChoice();">
-        Choose Now
-      </button>
-
-      <br />
-      <br />
-
-      <div id="food-choice">
-        <h2 id="food-name"></h2>
-        <p id="food-location"></p>
-        <p id="last-ate-date"></p>
+    <div class="container mt-5 px-4" id="food-randomiser">
+      <div class="row justify-content-center">
+        <h1 class="title">WHAT TO EAT</h1>
       </div>
 
-      <br />
-      <br />
+      <div class="row justify-content-center pt-5" id="food-choice-container">
+        <img class="food-img" src="./assets/food.png" id="food-placeholder" />
+        <div id="food-choice" class="row justify-content-center">
+          <div class="food-choice-box shadow">
+            <h2 id="food-name"></h2>
+            <img class="food-icon" src="./assets/food_icon.svg" />
+            <p id="food-location"></p>
+            <p id="last-ate-date"></p>
+          </div>
+        </div>
+      </div>
 
-      <h2>Options</h2>
+      <div class="d-flex flex-row flex-wrap justify-content-center mt-5 mb-5">
+        <button
+          disabled
+          id="choose-btn"
+          class="choice-btn selected"
+          onclick="fadeInOrOutFoodChoice();"
+        >
+          Choose for me!
+        </button>
+        <button class="choice-btn" disabled>View all choices</button>
+      </div>
+
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button
+              class="accordion-button options-header"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseOne"
+            >
+              Options
+            </button>
+          </h2>
+          <div
+            id="collapseOne"
+            class="accordion-collapse collapse show"
+            data-bs-parent="#accordionExample"
+          >
+            <div class="accordion-body">
+              <div class="options-box mt-3 p-3">
+                <div class="row">
+                  <p class="option-label">Price</p>
+                </div>
+                <div class="d-flex flex-row flex-wrap">
+                  <button
+                    class="option-btn selected"
+                    disabled
+                    data-option="low"
+                    data-category="price"
+                  >
+                    Low
+                  </button>
+                  <button
+                    class="option-btn selected"
+                    disabled
+                    data-option="mid"
+                    data-category="price"
+                  >
+                    Mid
+                  </button>
+                  <button
+                    class="option-btn"
+                    disabled
+                    data-option="high"
+                    data-category="price"
+                  >
+                    High
+                  </button>
+                </div>
+              </div>
+              <div class="options-box mt-3 p-3">
+                <div class="row">
+                  <p class="option-label">Location</p>
+                </div>
+                <div
+                  class="d-flex flex-row flex-wrap"
+                  id="location-options"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <h2>Options</h2>
       <p>Price</p>
       <button
         class="option-btn selected"
@@ -83,7 +156,7 @@
       <br />
 
       <p>Location</p>
-      <div id="location-options"></div>
+      <div id="location-options"></div> -->
       <!-- <button
         class="option-btn"
         selected

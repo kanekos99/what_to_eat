@@ -37,20 +37,18 @@ function appendLocationOptions(foodOptions) {
 
   uniqueLocations.forEach((location) => {
     const locationName = formatString(location);
-    const locationOptionButton =
-      `
-    <button
-        class="option-btn selected"
+    const isSelected = selectedLocations.includes(location);
+
+    const locationOptionButton = `
+      <button
+        class="option-btn${isSelected ? " selected" : ""}" 
         disabled
-        data-option="` +
-      location +
-      `"
+        data-option="${location}"
         data-category="location"
-    >` +
-      locationName +
-      `
+      >
+        ${locationName}
       </button>`;
+
     locationOptionBox.append(locationOptionButton);
-    
   });
 }
