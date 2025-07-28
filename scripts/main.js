@@ -1,6 +1,7 @@
 const app = {
   init: function () {
     foodChoiceBox.hide();
+    multiChoiceBox.hide();
     loadFoodOptions();
   },
 };
@@ -8,6 +9,7 @@ const app = {
 app.init();
 
 function fadeInOrOutFoodChoice() {
+  showSingleFoodChoiceContainer();
   if (clickedChooseForMeButton) {
     foodChoiceBox.fadeOut(300, function () {
       getFoodChoice();
@@ -32,7 +34,7 @@ function getFoodChoice() {
     displayFoodChoice(foodChoice);
   } else {
     selectedFoodName.innerHTML = "";
-    selectedFoodLocation.innerHTML = "No options are available";
+    selectedFoodLocation.innerHTML = "No choices are available";
     selectedFoodDate.innerHTML = "";
     foodIcon.src = "./assets/error_icon.png";
   }
@@ -61,6 +63,64 @@ function filterFoodOptions() {
   );
 }
 
+function viewAllFoodChoices() {
+  console.log(foodOptions);
+  hideSingleFoodChoiceContainer();
+  const filteredFoodChoices = filterFoodOptions();
+  populateAllFoodOptions(filteredFoodChoices);
+  console.log(filteredFoodChoices);
+}
+
+function populateAllFoodOptions(filteredFoodChoices) {
+  multiFoodChoicesHolder.empty();
+  if (filteredFoodChoices.length > 0) {
+    filteredFoodChoices.forEach((choice) => {
+      const locationName = formatString(choice.mall);
+      const lastAteDate =
+        "Last ate on: " +
+        (choice.last_ate === "" ? "No record" : choice.last_ate);
+      const choiceName = formatString(choice.display_name);
+
+      const choiceUnitBox = `
+      <div
+        class="food-unit-box shadow">
+        <p class="food-name-small">${choiceName}</p>
+        <p class="food-location-small">${locationName}</p>
+        <p class="last-date-small">${lastAteDate}</p>
+      </div>  
+    `;
+
+      multiFoodChoicesHolder.append(choiceUnitBox);
+    });
+  } else {
+    const choiceUnitBox = `
+      <div
+        class="food-unit-box shadow">
+        <p class="food-name-small">No choices are available</p>
+      </div>  
+    `;
+    multiFoodChoicesHolder.append(choiceUnitBox);
+  }
+}
+
+function hideSingleFoodChoiceContainer() {
+  viewAllChoicesPage = true;
+  chooseBtn.removeClass("selected");
+  viewBtn.addClass("selected");
+  singleChoiceBox.fadeOut(300, function () {
+    multiChoiceBox.fadeIn(300);
+  });
+}
+
+function showSingleFoodChoiceContainer() {
+  viewAllChoicesPage = false;
+  viewBtn.removeClass("selected");
+  chooseBtn.addClass("selected");
+  multiChoiceBox.fadeOut(300, function () {
+    singleChoiceBox.fadeIn(300);
+  });
+}
+
 /*------------------------options selection function---------------------------*/
 document.addEventListener("click", function (e) {
   if (e.target.matches(".option-btn")) {
@@ -76,6 +136,9 @@ document.addEventListener("click", function (e) {
       case "location":
         addOrRemoveFromArray(dataOption, selectedLocations);
         break;
+    }
+    if (viewAllChoicesPage) {
+      viewAllFoodChoices();
     }
   }
 });

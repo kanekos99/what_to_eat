@@ -33,19 +33,54 @@
     <title>What to Eat</title>
   </head>
   <body>
-    <div class="container mt-5 px-4" id="food-randomiser">
+    <div id="loading-screen">
+      <div class="loader"></div>
+    </div>
+    <div class="container mt-5 px-4" id="food-randomiser" style="display: none">
       <div class="row justify-content-center">
         <h1 class="title">WHAT TO EAT</h1>
       </div>
 
       <div class="row justify-content-center pt-5" id="food-choice-container">
-        <img class="food-img" src="./assets/food.png" id="food-placeholder" />
-        <div id="food-choice" class="row justify-content-center">
-          <div class="food-choice-box shadow">
-            <h2 id="food-name"></h2>
-            <img class="food-icon mb-4 mt-3" id="food-icon" src="./assets/food_icon.svg" />
-            <p id="food-location"></p>
-            <p id="last-ate-date"></p>
+        <div class="row justify-content-center" id="single-choice-box">
+          <img class="food-img" src="./assets/food.png" id="food-placeholder" />
+          <div id="food-choice" class="row justify-content-center">
+            <div class="food-choice-box shadow">
+              <h2 id="food-name"></h2>
+              <img
+                class="food-icon mb-4 mt-3"
+                id="food-icon"
+                src="./assets/food_icon.svg"
+              />
+              <p id="food-location"></p>
+              <p id="last-ate-date"></p>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center" id="multi-choice-box">
+          <div class="row justify-content-center" id="food-choices-holder">
+            <div class="food-unit-box shadow">
+              <h2 class="food-name-small">subway</h2>
+              <p class="food-location-small">white sands</p>
+              <p class="last-date-small">last ate: 28-07-2025</p>
+            </div>
+            <!-- <div class="food-unit-box shadow">
+              <h2 class="food-name-small">subway</h2>
+              <p class="food-location-small">white sands</p>
+              <p class="last-date-small">last ate: 28-07-2025</p>
+            </div>
+            <div class="food-unit-box shadow">
+              <h2 class="food-name-small">
+                subway subway subway subway subway
+              </h2>
+              <p class="food-location-small">white sands</p>
+              <p class="last-date-small">last ate: 28-07-2025</p>
+            </div>
+            <div class="food-unit-box shadow">
+              <h2 class="food-name-small">subway</h2>
+              <p class="food-location-small">white sands</p>
+              <p class="last-date-small">last ate: 28-07-2025</p>
+            </div> -->
           </div>
         </div>
       </div>
@@ -59,7 +94,14 @@
         >
           Choose for me!
         </button>
-        <button class="choice-btn" disabled>View all choices</button>
+        <button
+          disabled
+          class="choice-btn"
+          id="view-btn"
+          onclick="viewAllFoodChoices();"
+        >
+          View all choices
+        </button>
       </div>
 
       <div class="accordion" id="accordionExample">

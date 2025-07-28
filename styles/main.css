@@ -21,6 +21,11 @@ body {
   width: 100%;
 }
 
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
 .accordion {
   background-color: #e8d8c4;
 }
@@ -156,6 +161,45 @@ body {
   width: 150px;
 }
 
+.food-unit-box {
+  background-color: white;
+  font-family: "fakefutura";
+  color: #6d2932;
+  border-radius: 25px;
+  padding: 10px 20px 10px 20px;
+  margin: 0 10px 20px 10px;
+  text-align: center;
+  text-transform: lowercase;
+}
+
+.food-name-small {
+  font-family: "lazydog";
+  font-size: 25px;
+  color: #4e6c50;
+  padding: 0;
+  margin: 0;
+}
+
+.food-location-small {
+  font-size: 22px;
+  padding: 0;
+  margin: 0;
+}
+
+.last-date-small {
+  font-size: 15px;
+  padding: 0;
+  margin: 0;
+}
+
+#food-choices-holder {
+  max-width: 700px;
+  max-height: 390px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 10px;
+}
+
 /*--------------------------CUSTOM SCROLL BAR-------------------------------*/
 
 /* width */
@@ -177,4 +221,82 @@ body {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+#food-choices-holder::-webkit-scrollbar {
+  width: 8px; /* width of the scrollbar */
+  padding-top: 20px;
+}
+
+#food-choices-holder::-webkit-scrollbar-thumb {
+  background-color: #c7b7a3; /* the actual scrollbar "thumb" */
+  border-radius: 4px;
+}
+
+/* Hides the track (the background behind the thumb) */
+#food-choices-holder::-webkit-scrollbar-track {
+  background: transparent;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+/*-------------------------------loading screen---------------------------------------*/
+
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #e8d8c4;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-message {
+  font-size: 30px;
+  color: #6d2932;
+  font-family: "fakefutura";
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 8px solid #d1914b;
+  box-sizing: border-box;
+  --c: no-repeat radial-gradient(farthest-side, #d64123 94%, #0000);
+  --b: no-repeat radial-gradient(farthest-side, #000 94%, #0000);
+  background: var(--c) 11px 15px, var(--b) 6px 15px, var(--c) 35px 23px,
+    var(--b) 29px 15px, var(--c) 11px 46px, var(--b) 11px 34px,
+    var(--c) 36px 0px, var(--b) 50px 31px, var(--c) 47px 43px,
+    var(--b) 31px 48px, #f6d353;
+  background-size: 15px 15px, 6px 6px;
+  animation: l4 3s infinite;
+}
+@keyframes l4 {
+  0% {
+    -webkit-mask: conic-gradient(#0000 0, #000 0);
+  }
+  16.67% {
+    -webkit-mask: conic-gradient(#0000 60deg, #000 0);
+  }
+  33.33% {
+    -webkit-mask: conic-gradient(#0000 120deg, #000 0);
+  }
+  50% {
+    -webkit-mask: conic-gradient(#0000 180deg, #000 0);
+  }
+  66.67% {
+    -webkit-mask: conic-gradient(#0000 240deg, #000 0);
+  }
+  83.33% {
+    -webkit-mask: conic-gradient(#0000 300deg, #000 0);
+  }
+  100% {
+    -webkit-mask: conic-gradient(#0000 360deg, #000 0);
+  }
 }

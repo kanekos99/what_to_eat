@@ -19,12 +19,20 @@ function loadFoodOptions() {
 
       appendLocationOptions(foodOptions);
       enableButtons();
+
+      loadingScreen.fadeOut(300, function () {
+        foodRandomiserScreen.fadeIn(300);
+      });
+    },
+    error: function () {
+      loadingScreen.html(`<p class="error-message">Failed to load data. Please check if internet connection is available.</p>`);
     },
   });
 }
 
 function enableButtons() {
   document.getElementById("choose-btn").disabled = false;
+  document.getElementById("view-btn").disabled = false;
   document.querySelectorAll(".option-btn").forEach((button) => {
     button.disabled = false;
   });
