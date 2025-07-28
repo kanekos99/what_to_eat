@@ -1,6 +1,6 @@
 let foodOptions = [];
 let filteredFoodOptions = [];
-let viewAllChoicesPage = [];
+let viewAllChoicesPage = false;
 let clickedChooseForMeButton = false;
 const selectedFoodName = document.getElementById("food-name");
 const selectedFoodLocation = document.getElementById("food-location");
