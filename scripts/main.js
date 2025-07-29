@@ -59,16 +59,15 @@ function filterFoodOptions() {
   return foodOptions.filter(
     (item) =>
       selectedPrices.includes(item.price) &&
-      selectedLocations.includes(item.location)
+      selectedLocations.includes(item.location) &&
+      selectedTypes.includes(item.type)
   );
 }
 
 function viewAllFoodChoices() {
-  console.log(foodOptions);
   hideSingleFoodChoiceContainer();
   const filteredFoodChoices = filterFoodOptions();
   populateAllFoodOptions(filteredFoodChoices);
-  console.log(filteredFoodChoices);
 }
 
 function populateAllFoodOptions(filteredFoodChoices) {
@@ -96,7 +95,7 @@ function populateAllFoodOptions(filteredFoodChoices) {
     const choiceUnitBox = `
       <div
         class="food-unit-box shadow">
-        <p class="food-name-small">No choices are available</p>
+        <p class="food-list-error">No choices are available</p>
       </div>  
     `;
     multiFoodChoicesHolder.append(choiceUnitBox);
@@ -136,6 +135,8 @@ document.addEventListener("click", function (e) {
       case "location":
         addOrRemoveFromArray(dataOption, selectedLocations);
         break;
+      case "type":
+        addOrRemoveFromArray(dataOption, selectedTypes);  
     }
     if (viewAllChoicesPage) {
       viewAllFoodChoices();

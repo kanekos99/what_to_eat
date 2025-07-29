@@ -40,6 +40,7 @@ const foodRandomiserScreen = $(foodRandomiserScreenName);
 
 const selectedPrices = ["low", "mid"];
 const selectedLocations = ["pasir_ris", "tampines"];
+const selectedTypes = ["dine_in"];
 
 function formatString(str) {
   return str
